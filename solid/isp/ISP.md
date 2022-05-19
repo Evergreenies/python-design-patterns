@@ -1,0 +1,4 @@
+# Interface Segregation Principle - (ISP)
+
+- This patters states that an interface should be as small as a possible in terms of cohesion.
+Ex - Let me explain it with an example. Say, you have a class A and a class B, which is the client of class A. Suppose, class A has ten methods, of which only two are used by B. Now, does B need to know about all ten methods of A? Probably not - the principle of Information hiding. The more you expose, the more you create the chance for coupling. For that reason, you may insert an interface, call it C, between the two classes (segregation). That interface will only declare the two methods that are used by B, and B will depend on that Interface, instead of directly on A.
