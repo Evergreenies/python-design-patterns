@@ -9,20 +9,23 @@ class Subsystem1:  # noqa
     any case, to the sub-system, the facade is yet another client, and it's not a part
     of the sub-system.
     """
+
     def operation1(self) -> str:  # noqa
         return 'Subsystem1: Ready!'
 
     def operation_n(self) -> str:  # noqa
         return 'Subsystem1: Go!'
 
+
 class Subsystem2:  # noqa
     """
     Some facade can work with multiple sub-system at the same time.
     """
+
     def operation1(self) -> str:  # noqa
         return 'SubSystem2: Get ready!'
 
-    def operation_n(self) -> str:  # noqa
+    def operation_z(self) -> str:  # noqa
         return 'Subsystem2: Fire!'
 
 
@@ -58,4 +61,19 @@ class Facade:  # noqa
             'Facade initializes sub-systems:',
             self._subsystem1.operation1(),
             self._subsystem2.operation1(),
+            'Facade orders sub-systems to perform the action:',
+            self._subsystem1.operation_n(),
+            self._subsystem2.operation_z(),
         ]
+        return '\n'.join(result)
+
+
+def client_code(facade: Facade) -> None:  # noqa
+    print(facade.operation())
+
+
+if __name__ == '__main__':
+    _subsystem1 = Subsystem1()
+    _subsystem2 = Subsystem2()
+    _facade = Facade(_subsystem1, _subsystem2)
+    client_code(_facade)
