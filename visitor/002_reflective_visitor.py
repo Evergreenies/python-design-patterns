@@ -46,5 +46,4 @@ if __name__ == '__main__':
 
     _buffer = []
     e.print(_buffer)  # noqa
-    # ExpressionPrinter.print(e, _buffer)
-    print(''.join(_buffer))  # , '=', e.eval())
+    print(''.join(_buffer))
